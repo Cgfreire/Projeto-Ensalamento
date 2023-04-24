@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components/table.css">
+    <link rel="stylesheet" href="css/components/menu.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+    <link rel="stylesheet" href="css/responsiviness.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css'>
+    <title>Controle de ensalamento de professores</title>
+    <script type="module" defer src="js/main.js"></script>
+</head>
+
+<body>
+    <i class="fa-solid fa-bars menu-mobile-btn"></i>
+    <main class="wrapper">
+        <div class="menu-mobile-container">
+            <button class="btn active" data-js="menu1">Geral</button>
+            <button class="btn" data-js="menu2">Calendário</button>
+            <button class="btn" data-js="menu3">Professores</button>
+            <button class="btn" data-js="menu4">Cursos</button>
+            <button class="btn" data-js="menu5">Salas</button>
+            <button class="btn" data-js="menu6">Períodos</button>
+            <button class="btn" data-js="menu7">Desafios</button>
+            <button class="btn" data-js="menu8">Horários</button>
+        </div>
+
+        <div class="menu-btn-container">
+        <button class="btn active" data-js="menu1">Geral</button>
+        <button class="btn" data-js="menu2">Calendário</button>
+        <button class="btn" data-js="menu3">Professores</button>
+        <button class="btn" data-js="menu4">Cursos</button>
+        <button class="btn" data-js="menu5">Salas</button>
+        <button class="btn" data-js="menu6">Períodos</button>
+        <button class="btn" data-js="menu7">Desafios</button>
+        <button class="btn" data-js="menu8">Horários</button>
+        </div>
+
+        <div class="panel-container">
+                <div class="panel active" data-js="menu1">
+                    <table id="general">
+                        <tr>
+                            <th>ID</th>
+                            <th>Professor</th>
+                            <th>Curso</th>
+                            <th>Sala</th>
+                            <th>Período</th>
+                            <th>Desafio</th>
+                            <th>Horário</th> 
+                            <th></th>
+                        </tr>
+                    </table>
+                
+                    <button class="register-btn">Registrar</button>
+                
+                    <form id="form" class="modal">
+                        <label>Nome do(a) Professor(a)</label>
+                        <input data-table="professor" id="professor-input" class="input-form" required type="text" minlength="2" maxlength="20"
+                            placeholder="Insira um(a) professor(a)">
+
+                        <label>Curso</label>
+                        <input data-table="course" id="course-input" class="input-form" required type="text" minlength="2" maxlength="20"
+                            placeholder="Insira o curso do(a) professor(a)">
+
+                        <label>Sala de aula</label>
+                        <input data-table="room" id="room-input" class="input-form" required type="text" minlength="2" maxlength="4"
+                            placeholder="Insira a sala que haverá aula">
+
+                        <label>Para qual período</label>
+                        <input data-table="period" id="period-input" class="input-form" required type="text" minlength="2" maxlength="3"
+                            placeholder="Insira o período da aula">
+
+                        <label>Desafio da turma</label>
+                        <input data-table="challenge" id="challenge-input" class="input-form" required type="text" minlength="2" maxlength="30"
+                            placeholder="Insira o desafio da turma">
+
+                        <label>Horário da aula</label>
+                        <input data-table="hour" id="hour-input" class="input-form" required type="text" minlength="2" maxlength="20"
+                            placeholder="Insira o horário da aula">
+
+                        <button class="create-btn">Criar</button>
+                    </form>
+                </div>
+
+
+                <div class="overlap"></div>
+
+
+            <div class="panel" data-js="menu2">
+                <table id="calendario">
+                    <tr>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel" data-js="menu3">
+                <table id="professor">
+                    <tr>
+                        <th>ID</th>
+                        <th>Professores</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel" data-js="menu4">
+                <table id="course">
+                    <tr>
+                        <th>ID</th>
+                        <th>Cursos</th>
+                    </tr>
+                </table>    
+            </div>
+
+            <div class="panel" data-js="menu5">
+                <table id="room">
+                    <tr>
+                        <th>ID</th>
+                        <th>Salas</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel" data-js="menu6">
+                <table id="period">
+                    <tr>
+                        <th>ID</th>
+                        <th>Períodos</th>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="panel" data-js="menu7">
+                <table id="challenge">  
+                    <tr>
+                        <th>ID</th>
+                        <th>Desafios</th>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="panel" data-js="menu8">
+                <table id="hour">
+                    <tr>
+                        <th>ID</th>
+                        <th>Horários</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

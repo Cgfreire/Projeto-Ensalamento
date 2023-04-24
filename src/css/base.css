@@ -1,0 +1,92 @@
+:root {
+    --global-background: #121214;
+    --disabled-color: #18181b;
+    --add-color: #00b37e;
+    --warning-color: #ce4a4a;
+    --light-txt: rgb(214, 214, 214);
+    --dark-txt: #29292e;
+    --menu-active: #1a1a1d;
+    --default-transition: all ease .5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--light-txt);
+}
+
+
+html,
+body {
+    font-size: 62.5%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;;
+}
+
+body {
+    background: var(--global-background);
+}
+
+main {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+button {
+    font-weight: bold;
+    border: none;
+    border-radius: .5rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+i {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--menu-active);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--global-background);
+    border-radius: .5rem;
+}
+
+::-moz-scrollbar {
+    width: 1rem;
+}
+
+::-moz-scrollbar-track {
+    background-color: var(--menu-active);
+}
+
+::-moz-scrollbar-thumb {
+    background: var(--global-background);
+    border-radius: .5rem;
+}
+
+::-ms-scrollbar {
+    width: 1rem;
+}
+
+::-ms-scrollbar-track {
+    background-color: var(--menu-active);
+}
+
+::-ms-scrollbar-thumb {
+    background: var(--global-background);
+    border-radius: .5rem;
+}

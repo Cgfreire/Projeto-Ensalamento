@@ -1,0 +1,150 @@
+.menu-mobile-btn {
+    visibility: hidden;
+    font-size: 3rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 900;
+}
+
+.menu-mobile-container {
+    display: none;
+}
+
+.menu-mobile-container.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    background: var(--global-background);
+}
+
+.menu-mobile-container.open button {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+
+.menu-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn {
+    width: 10rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--disabled);
+    border: none;
+    margin: 1.5rem;
+    cursor: pointer;
+    transition: all ease 1s;
+}
+
+.panel-container {
+    width: 100%;
+    height: 100%;
+}
+
+.panel {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 7rem 0;
+    display: none;
+}
+
+.panel.active {
+    display: block;
+    overflow: auto;
+}
+
+.register-btn {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 1rem;
+    position: absolute;
+    top: 8rem;
+    right: 7rem;
+    background: var(--add-color);
+    color: var(--dark-txt);
+    transition: var(--default-transition);
+    z-index: 1001;
+}
+
+
+.btn[data-js="menu1"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu2"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu3"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu4"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu5"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu6"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu7"].active {
+    background: var(--menu-active);
+}
+
+.btn[data-js="menu8"].active {
+    background: var(--menu-active);
+}
+
+
+.panel[data-js="menu1"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu2"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu3"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu4"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu5"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu6"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu7"] {
+    background-color: var(--menu-active);
+}
+
+.panel[data-js="menu8"] {
+    background-color: var(--menu-active);
+}

@@ -1,0 +1,54 @@
+.modal {
+    display: none;
+    width: 40rem;
+    border-radius: 1rem;
+    background-color: var(--global-background);
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal label {
+    text-align: start;
+    font-size: 1.6rem;
+}
+
+.modal input {
+    padding: 1rem;
+    border-radius: .5rem;
+    margin: .5rem 0;
+    border: none;
+    background: var(--menu-active);
+    color: var(--light-txt);
+    outline: none;
+}
+
+.modal .create-btn, .modal .cancel-btn {
+    padding: .5rem;
+    color: var(--dark-txt);
+    background: var(--add-color);
+    margin-top: 1rem;
+}
+
+.modal .cancel-btn{
+    background: var(--warning-color);
+}
+
+.modal.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 5rem;
+    z-index: 1001;
+}
+
+.overlap.active{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.575);
+}

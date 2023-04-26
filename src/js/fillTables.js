@@ -1,6 +1,6 @@
 import { generalTable } from './handleSubmitForm.js'
 import { createEntityList, createNewLineGeneralTable } from './createLineTables.js';
-import { inputs } from "./handleSubmitForm.js";
+import { selects } from "./handleSubmitForm.js";
 
 
 export function fillGeneralTable() {
@@ -12,10 +12,10 @@ export function fillGeneralTable() {
 
 
 export function fillOthersTables() {
-    Array.from(inputs).forEach(input => {
-        const list = JSON.parse(localStorage.getItem(`${input.dataset.table}`)) || []
-        list.forEach(item => {
-            createEntityList(input.dataset.table, item)
+    Array.from(selects).forEach(select => {
+        Array.from(select.options).forEach(option => {
+            const id = Array.from(select.options).indexOf(option) + 1
+            createEntityList(select.dataset.table, option.text, id)
         })
     })
 }

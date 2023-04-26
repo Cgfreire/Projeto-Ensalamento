@@ -4,34 +4,36 @@
     border-radius: 1rem;
     background-color: var(--global-background);
     position: absolute;
-    top: 60%;
+    top: 2%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
 
 .modal label {
     text-align: start;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
-.modal input {
-    padding: 1rem;
+.modal input,
+select {
+    padding: .4rem;
     border-radius: .5rem;
-    margin: .5rem 0;
+    margin: .4rem 0;
     border: none;
     background: var(--menu-active);
     color: var(--light-txt);
     outline: none;
 }
 
-.modal .create-btn, .modal .cancel-btn {
+.modal .create-btn,
+.modal .cancel-btn {
     padding: .5rem;
     color: var(--dark-txt);
     background: var(--add-color);
     margin-top: 1rem;
 }
 
-.modal .cancel-btn{
+.modal .cancel-btn {
     background: var(--warning-color);
 }
 
@@ -43,7 +45,7 @@
     z-index: 1001;
 }
 
-.overlap.active{
+.overlap.active {
     width: 100%;
     height: 100vh;
     position: absolute;

@@ -7,19 +7,20 @@ table {
 }
 
 th,
-td { 
+td {
     text-align: center;
+    padding: 1rem 5rem;
 }
 
-td:first-child{
+td:first-child {
     padding-left: 2rem;
 }
 
-td:last-child{
+td:last-child {
     padding-right: 2rem;
 }
 
-td input{
+td input {
     background: none;
     border: none;
     outline: none;
@@ -29,22 +30,23 @@ td input{
     cursor: text;
 }
 
-td input:focus{
+td input:focus {
     box-shadow: inset 0 0 .1rem .1rem #8257e5;
 }
 
-tr:nth-child(odd){
+tr:nth-child(odd) {
     background: var(--global-background);
 }
 
-tr:first-child th{
+tr:first-child th {
     background: #8257e5;
     color: var(--global-background);
 }
 
-.fa-pen{
+.fa-pen {
     color: var(--add-color);
 }
-.fa-trash{
+
+.fa-trash {
     color: var(--warning-color);
 }

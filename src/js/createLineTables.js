@@ -1,5 +1,6 @@
-export function createNewLineGeneralTable(tableID, obj) {
 
+
+export function createNewLineGeneralTable(tableID, obj) {
     const newLine = document.createElement('tr')
     newLine.setAttribute('data-id', obj.id)
     newLine.innerHTML = `
@@ -17,8 +18,9 @@ export function createNewLineGeneralTable(tableID, obj) {
     `
 
 
-    const removeIcon = newLine.querySelector('.fa-trash')
-    removeIcon.addEventListener('click', () => {
+
+    const trashIcon = newLine.querySelector('.fa-trash')
+    trashIcon.addEventListener('click', () => {
         const list = JSON.parse(localStorage.getItem('general')) || []
         const id = parseInt(newLine.getAttribute('data-id'))
         const updatedList = list.filter(item => item.id !== id)
@@ -26,12 +28,11 @@ export function createNewLineGeneralTable(tableID, obj) {
         newLine.remove()
     })
 
-
     tableID.appendChild(newLine)
 }
 
 
-export function createEntityList(tableID, entity, id) {
+export function createNewLineOtherTables(tableID, entity, id) {
 
     const table = document.getElementById(`${tableID}`)
 
@@ -41,8 +42,32 @@ export function createEntityList(tableID, entity, id) {
     const cell2 = document.createElement('td')
     cell2.innerText = entity
 
+    const cell3 = document.createElement('td')
+    const editIcon = document.createElement('i')
+    editIcon.className = 'fa-solid fa-pen'
+    cell3.append(editIcon)
+
+    const cell4 = document.createElement('td')
+    const trashIcon = document.createElement('i')
+    trashIcon.className = 'fa-solid fa-trash'
+    cell4.append(trashIcon)
+
     const newLine = document.createElement('tr')
-    newLine.append(cell1, cell2)
+    newLine.append(cell1, cell2, cell3, cell4)
 
     table.appendChild(newLine)
+
+
+    editIcon.addEventListener('click', () => {
+
+    })
+
+
+    trashIcon.addEventListener('click', () => {
+        const list = JSON.parse(localStorage.getItem(tableID)) || []
+        const newList = list.filter(item => item !== entity)
+        localStorage.setItem(tableID, JSON.stringify(newList))
+        newLine.remove()
+        window.location.reload()
+    })
 }

@@ -74,13 +74,35 @@
     font-size: 1.4rem;
     border: none;
     border-radius: 1rem;
-    position: absolute;
+    position: fixed;
     top: 8rem;
-    right: 7rem;
+    right: 8rem;
     background: var(--add-color);
     color: var(--dark-txt);
     transition: var(--default-transition);
     z-index: 1001;
+}
+
+
+.input-new-entity-container{
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+}
+
+.input-new-entity-container input{
+  padding: .5rem;
+  margin-right: .5rem;
+  border: none;
+  border-radius: .5rem;
+  outline: none;
+  background-color: var(--global-background);
+}
+.input-new-entity-container button{
+  padding: .5rem 3rem;
+  border: none;
+  background-color: var(--add-color);
+  color: var(--dark-txt);
 }
 
 

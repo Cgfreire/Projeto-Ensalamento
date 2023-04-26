@@ -3,4 +3,3 @@ export function saveOnLocalStorage(key, value) {
     list.push(value)
     localStorage.setItem(key, JSON.stringify(list))
 }
-

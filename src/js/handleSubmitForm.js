@@ -1,4 +1,4 @@
-import { createNewLineGeneralTable, createEntityList } from "./createLineTables.js"
+import { createNewLineGeneralTable } from "./createLineTables.js"
 import { saveOnLocalStorage } from "./saveOnLocalStorage.js"
 import { removeModal } from "./modal.js"
 import { toggleInfoButton } from './modal.js'

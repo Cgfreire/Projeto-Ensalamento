@@ -3,7 +3,7 @@ const btnModal = document.querySelector(".register-btn");
 const overlap = document.querySelector(".overlap");
 
 export function toggleModal() {
-  btnModal.addEventListener("mouseenter", () => {
+  btnModal.addEventListener("click", () => {
     modal.classList.toggle("open");
     overlap.classList.toggle("active");
     toggleInfoButton();

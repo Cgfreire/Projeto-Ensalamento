@@ -9,7 +9,10 @@ table {
 th,
 td {
     text-align: center;
-    padding: 1rem 5rem;
+}
+
+td{
+    padding: 1rem 3rem;
 }
 
 td:first-child {

@@ -1,5 +1,5 @@
 import { generalTable } from './handleSubmitForm.js'
-import { createEntityList, createNewLineGeneralTable } from './createLineTables.js';
+import { createNewLineOtherTables, createNewLineGeneralTable } from './createLineTables.js';
 import { selects } from "./handleSubmitForm.js";
 
 
@@ -15,7 +15,7 @@ export function fillOthersTables() {
     Array.from(selects).forEach(select => {
         Array.from(select.options).forEach(option => {
             const id = Array.from(select.options).indexOf(option) + 1
-            createEntityList(select.dataset.table, option.text, id)
+            createNewLineOtherTables(select.dataset.table, option.text, id)
         })
     })
 }

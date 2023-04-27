@@ -1,4 +1,5 @@
-
+import { modal, overlap, toggleInfoButton } from './modal.js'
+import { fillSelectOptions } from './createNewEntity.js'
 
 export function createNewLineGeneralTable(tableID, obj) {
     const newLine = document.createElement('tr')
@@ -18,6 +19,12 @@ export function createNewLineGeneralTable(tableID, obj) {
     `
 
 
+    const editIcon = newLine.querySelector('.fa-pen')
+    editIcon.addEventListener('click', (event) => {
+        modal.classList.add("open")
+        overlap.classList.toggle("active")
+        toggleInfoButton()
+    })
 
     const trashIcon = newLine.querySelector('.fa-trash')
     trashIcon.addEventListener('click', () => {
@@ -27,42 +34,45 @@ export function createNewLineGeneralTable(tableID, obj) {
         localStorage.setItem('general', JSON.stringify(updatedList))
         newLine.remove()
     })
-
     tableID.appendChild(newLine)
 }
 
-
 export function createNewLineOtherTables(tableID, entity, id) {
-
     const table = document.getElementById(`${tableID}`)
 
-    const cell1 = document.createElement('td')
-    cell1.innerText = id
-
-    const cell2 = document.createElement('td')
-    cell2.innerText = entity
-
-    const cell3 = document.createElement('td')
-    const editIcon = document.createElement('i')
-    editIcon.className = 'fa-solid fa-pen'
-    cell3.append(editIcon)
-
-    const cell4 = document.createElement('td')
-    const trashIcon = document.createElement('i')
-    trashIcon.className = 'fa-solid fa-trash'
-    cell4.append(trashIcon)
-
     const newLine = document.createElement('tr')
-    newLine.append(cell1, cell2, cell3, cell4)
+    newLine.innerHTML = `
+        <td>${id}</td>
+        <td><input disabled type="text" maxlength="30" minlength="2" value="${entity}"></td>
+        <td><i class="fa-solid fa-pen"></i></td>
+        <td><i class="fa-solid fa-trash"></i></td>
+    `
 
     table.appendChild(newLine)
 
-
+    const input = newLine.querySelector('input')
+    const editIcon = newLine.querySelector('.fa-pen')
     editIcon.addEventListener('click', () => {
+        input.disabled = false
+        input.focus()
+        
+    })
 
+    const oldValue = input.value
+
+    input.addEventListener('blur', () => {
+        input.disabled = true
+        const newValue = input.value
+        console.log(`novo valor: ${newValue}`)
+        const list = JSON.parse(localStorage.getItem(tableID))
+        const index = list.indexOf(oldValue)
+        list.splice(index, 1, newValue)
+        localStorage.setItem(tableID, JSON.stringify(list))
+        fillSelectOptions(tableID)
     })
 
 
+    const trashIcon = newLine.querySelector('.fa-trash')
     trashIcon.addEventListener('click', () => {
         const list = JSON.parse(localStorage.getItem(tableID)) || []
         const newList = list.filter(item => item !== entity)

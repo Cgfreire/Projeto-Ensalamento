@@ -2,29 +2,21 @@ import { selects } from './handleSubmitForm.js'
 
 function createInputNewEntity(panelID) {
     const panel = document.querySelector(`.${panelID}`)
-  
-    const inputContainer = document.createElement('div')
-    inputContainer.style.display = 'flex'
-    inputContainer.style.alignItems = 'center'
-    
-    const input = document.createElement('input')
-    input.setAttribute('type', 'text')
-    input.setAttribute('maxLength', '30')
-    input.setAttribute('minLength', '2')
-    input.placeholder = `insert ${panelID}`
-    
-    const button = document.createElement('button')
-    button.textContent = 'Criar'
 
-    inputContainer.append(input, button)
-    inputContainer.className = 'input-new-entity-container'
-    
-    panel.appendChild(inputContainer)
+    const inputContainerHTML = `
+    <div class="input-new-entity-container" style="display: flex align-items: center">
+      <input type="text" maxLength="30" minLength="2" placeholder="insert a new ${panelID}">
+      <button>Criar</button>
+    </div>
+  `
 
+    panel.innerHTML += inputContainerHTML
+
+    const button = panel.querySelector('button')
+    const select = document.querySelector(`select[data-table="${panelID}"]`)
 
     button.addEventListener('click', () => {
-        const select = document.querySelector(`select[data-table="${panelID}"]`)
-        const newEntity = input.value.trim()
+        const newEntity = panel.querySelector('input').value.trim()
 
         if (newEntity === '') return
 
@@ -46,10 +38,9 @@ function createInputNewEntity(panelID) {
         const options = Array.from(select.options).map((option) => option.value)
         localStorage.setItem(panelID, JSON.stringify(options))
     })
-
 }
 
-export function createNewEntity() {
+export function createNewEntity() { 
     Array.from(selects).forEach(select => {
         createInputNewEntity(select.dataset.table)
         fillSelectOptions(select.dataset.table)

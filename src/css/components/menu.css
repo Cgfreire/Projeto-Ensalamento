@@ -88,6 +88,7 @@
     position: absolute;
     top: 10rem;
     right: 10rem;
+    z-index: 1001;
 }
 
 .input-new-entity-container input{

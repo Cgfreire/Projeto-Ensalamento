@@ -2,13 +2,13 @@ import { generalTable } from './handleSubmitForm.js'
 import { createNewLineOtherTables, createNewLineGeneralTable } from './createLineTables.js';
 import { selects } from "./handleSubmitForm.js";
 
-
 export function fillGeneralTable() {
     const list = JSON.parse(localStorage.getItem('general')) || []
     list.forEach(obj => {
         createNewLineGeneralTable(generalTable, obj)
     })
 }
+
 
 
 export function fillOthersTables() {

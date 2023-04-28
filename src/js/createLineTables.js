@@ -1,5 +1,5 @@
-import { modal, overlap, toggleInfoButton } from './modal.js'
 import { fillSelectOptions } from './createNewEntity.js'
+import { selects } from './handleSubmitForm.js'
 
 export function createNewLineGeneralTable(tableID, obj) {
     const newLine = document.createElement('tr')
@@ -18,12 +18,9 @@ export function createNewLineGeneralTable(tableID, obj) {
         <td><i class="fa-solid fa-trash"></i></td>
     `
 
-
     const editIcon = newLine.querySelector('.fa-pen')
-    editIcon.addEventListener('click', (event) => {
-        modal.classList.add("open")
-        overlap.classList.toggle("active")
-        toggleInfoButton()
+    editIcon.addEventListener('click', () => {
+        
     })
 
     const trashIcon = newLine.querySelector('.fa-trash')
@@ -33,7 +30,9 @@ export function createNewLineGeneralTable(tableID, obj) {
         const updatedList = list.filter(item => item.id !== id)
         localStorage.setItem('general', JSON.stringify(updatedList))
         newLine.remove()
+        fillSelectOptions(tableID)
     })
+    
     tableID.appendChild(newLine)
 }
 
@@ -51,19 +50,16 @@ export function createNewLineOtherTables(tableID, entity, id) {
     table.appendChild(newLine)
 
     const input = newLine.querySelector('input')
+    let oldValue = input.value
     const editIcon = newLine.querySelector('.fa-pen')
     editIcon.addEventListener('click', () => {
         input.disabled = false
         input.focus()
-        
     })
-
-    const oldValue = input.value
 
     input.addEventListener('blur', () => {
         input.disabled = true
         const newValue = input.value
-        console.log(`novo valor: ${newValue}`)
         const list = JSON.parse(localStorage.getItem(tableID))
         const index = list.indexOf(oldValue)
         list.splice(index, 1, newValue)
@@ -72,12 +68,20 @@ export function createNewLineOtherTables(tableID, entity, id) {
     })
 
 
-    const trashIcon = newLine.querySelector('.fa-trash')
+        const trashIcon = newLine.querySelector('.fa-trash')
+
     trashIcon.addEventListener('click', () => {
-        const list = JSON.parse(localStorage.getItem(tableID)) || []
-        const newList = list.filter(item => item !== entity)
-        localStorage.setItem(tableID, JSON.stringify(newList))
-        newLine.remove()
-        window.location.reload()
-    })
+        Array.from(selects).forEach(select => {
+            let optionsList = []
+            Array.from(select.options).forEach(option => {
+                optionsList.push(option.value)
+                localStorage.setItem(select.dataset.table, JSON.stringify(optionsList))
+            })
+        })
+            const list = JSON.parse(localStorage.getItem(tableID)) || []
+            const newList = list.filter(item => item !== entity)
+            localStorage.setItem(tableID, JSON.stringify(newList))
+            newLine.remove()
+            fillSelectOptions(tableID)  
+        })
 }

@@ -3,12 +3,13 @@
     --disabled-color: #18181b;
     --add-color: #00b37e;
     --warning-color: #ce4a4a;
-    --light-txt: rgb(214, 214, 214);
+    --light-txt: rgb(194, 194, 194);
     --dark-txt: #29292e;
-    --menu-active: #1a1a1d;
+    --menu-active: #151518;
     --default-transition: all ease .5s;
+    --ball: #111114;
+    --label-checkbox: #16161a;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -18,12 +19,14 @@
 }
 
 
+
 html,
 body {
     font-size: 62.5%;
     width: 100vw;
     height: 100vh;
-    position: relative;;
+    position: relative;
+    transition: background 0.2s ease;
 }
 
 body {
@@ -57,7 +60,7 @@ i {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--menu-active);
+    background: var(--menu-active);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -70,7 +73,7 @@ i {
 }
 
 ::-moz-scrollbar-track {
-    background-color: var(--menu-active);
+    background: var(--menu-active);
 }
 
 ::-moz-scrollbar-thumb {
@@ -83,10 +86,61 @@ i {
 }
 
 ::-ms-scrollbar-track {
-    background-color: var(--menu-active);
+    background: var(--menu-active);
 }
 
 ::-ms-scrollbar-thumb {
     background: var(--global-background);
     border-radius: .5rem;
+}
+
+
+.theme-container{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+/* checkbox */
+.btn-theme{ 
+    opacity: 0;
+    position: absolute;
+}
+
+.label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5rem;
+    background: var(--label-checkbox);
+    padding: 1rem;
+    width: 7rem;
+    height: 3.5rem;
+    position: relative;
+}
+
+.label i{
+    font-size: 2rem;
+}
+
+.label .fa-moon{
+    color: rgb(0, 0, 141);
+}
+
+.label .fa-sun{
+    color: rgb(255, 251, 27);
+}
+
+.ball{
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    left: .4rem;
+    bottom: .2rem;
+    background: var(--ball);
+    border-radius: 50%;
+    transform: translateX(0);
+    transition: var(--default-transition);
 }

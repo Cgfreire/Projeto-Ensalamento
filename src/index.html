@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/components/table.css">
     <link rel="stylesheet" href="css/components/menu.css">
     <link rel="stylesheet" href="css/components/modal.css">
+    <link rel="stylesheet" href="css/components/calendar.css">
     <link rel="stylesheet" href="css/responsiviness.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css'>
     <title>Controle de ensalamento de professores</title>
@@ -19,7 +20,17 @@
 </head>
 
 <body>
+    <div class="theme-container">
+        <input class="btn-theme" type="checkbox" id="checkbox">
+        <label class="label" for="checkbox">
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+    
     <i class="fa-solid fa-bars menu-mobile-btn"></i>
+
     <main class="wrapper">
         <div class="menu-mobile-container">
             <button class="btn active" data-js="menu1">Geral</button>
@@ -116,14 +127,93 @@
 
 
             <div class="panel calendario" data-js="menu2">
+                <h3 id="current-year">Ano atual</h3>
+                <header>
+                    <a  class="btn-prox"><i class="fa-solid fa-circle-arrow-left"></i></a>
+                    <h3 id="current-month">Mês atual</h3>
+                    <a class="btn-ant"><i class="fa-solid fa-circle-arrow-right"></i></a>
+                </header>
                 <table id="calendario">
+                   <thead>
                     <tr>
-                        <th>Segunda</th>
-                        <th>Terça</th>
-                        <th>Quarta</th>
-                        <th>Quinta</th>
-                        <th>Sexta</th>
+                        <th>D</th>
+                        <th>S</th>
+                        <th>T</th>
+                        <th>Q</th>
+                        <th>Q</th>
+                        <th>S</th>
+                        <th>S</th>
                     </tr>
+                   </thead>
+                   <tbody>
+                    <div class="container-events">
+                        <i class="fa-solid fa-rectangle-xmark"></i>
+                        <h1>Dia de hoje</h1>
+                        <div class="event">
+                            <span><h2>Professor: Professor</h2></span>
+                            <span><h2>Curso: Curso</h2></span>
+                            <span><h2>Sala: Sala</h2></span>
+                            <span><h2>Período: Período</h2></span>
+                            <span><h2>Horário de início: 19h</h2></span>
+                            <span><h2>Horário de término: 22h</h2></span>
+                            <span><h2>Desafio: Lorem ipsum dolor sit, amet consectetur adipisicing.</h2></span>
+                        </div>
+                    </div>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5 <div class="notification-bubble"></div></td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                   </tbody>
                 </table>
             </div>
 

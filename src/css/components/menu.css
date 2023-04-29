@@ -44,7 +44,7 @@
     width: 10rem;
     padding: 1rem;
     border-radius: 1rem;
-    background: var(--disabled);
+    background: var(--disabled-color);
     border: none;
     margin: 1.5rem;
     cursor: pointer;
@@ -60,7 +60,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    padding: 7rem 0;
+    padding: 5rem 0;
     display: none;
 }
 
@@ -75,7 +75,7 @@
     border: none;
     border-radius: 1rem;
     position: fixed;
-    top: 8rem;
+    top: 7rem;
     right: 8rem;
     background: var(--add-color);
     color: var(--dark-txt);
@@ -86,7 +86,7 @@
 
 .input-new-entity-container{
     position: absolute;
-    top: 10rem;
+    top: 8rem;
     right: 10rem;
     z-index: 1001;
 }

@@ -13,6 +13,8 @@ td {
 
 td{
     padding: 1rem 3rem;
+    max-width: 20rem;
+    word-wrap: break-word;
 }
 
 td:first-child {

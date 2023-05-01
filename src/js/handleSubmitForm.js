@@ -2,6 +2,7 @@ import { createNewLineGeneralTable } from "./createLineTables.js"
 import { saveOnLocalStorage } from "./saveOnLocalStorage.js"
 import { removeModal } from "./modal.js"
 import { toggleInfoButton } from './modal.js'
+import { handleCalendar } from "./handleCalendar.js"
 
 const form = document.querySelector('#form')
 export const generalTable = document.querySelector('#general')
@@ -50,59 +51,7 @@ export function handleSubmitForm() {
         clearInputs()
         removeModal()
         toggleInfoButton()
-
-
-
-
-
-        //Handle Date
-        
-        const eventDate = new Date(date)
-        const dayOfWeek = eventDate.getDay() 
-        const dayOfMonth = eventDate.getDate() + 1
-        const month = eventDate.getMonth() + 1
-        const year = eventDate.getFullYear()
-
-        const formatedDate = `${year}-${month < 10 ? '0' : ''}${month}-${dayOfMonth < 10 ? '0' : ''}${dayOfMonth}`
-        const inverseFormatedDate = formatedDate.split('-').reverse().join('/')
-
-        console.log({ dayOfWeek, dayOfMonth, month, year, formatedDate })
-
-
-        Array.from(tds).forEach(td => {
-            console.log(td.dataset)
-            if (td.dataset.date == formatedDate) {
-                const modal = document.createElement('div')
-                modal.className = 'modal-events'
-                modal.innerHTML = `
-                    <i class="fa-solid fa-rectangle-xmark"></i>
-                        <h1>Data: ${inverseFormatedDate}</h1>
-                        <div class="event">
-                            <span><h2>Professor: ${professor}</h2></span>
-                            <span><h2>Curso: ${course}</h2></span>
-                            <span><h2>Sala: ${room}</h2></span>
-                            <span><h2>Período: ${period}</h2></span>
-                            <span><h2>Horário de início: ${initHour}</h2></span>
-                            <span><h2>Horário de término: ${finishHour}</h2></span>
-                            <span><h2>Desafio: ${challenge}</h2></span>
-                        </div>
-                `
-
-                const notify = document.createElement('div')
-                notify.className = 'notification-bubble'
-               
-                document.body.appendChild(modal, notify)
-
-                td.addEventListener('click', () => {
-                    modal.classList.add('open')
-                })
-
-                const buttonClose = modal.querySelector('.fa-rectangle-xmark')
-                buttonClose.addEventListener('click', () => {
-                    modal.classList.remove('open')
-                })
-            }
-        })  
+        handleCalendar(date, objGeneral)
     })
 }
 

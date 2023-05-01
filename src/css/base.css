@@ -116,7 +116,7 @@ i {
     border-radius: 5rem;
     background: var(--label-checkbox);
     padding: 1rem;
-    width: 7rem;
+    width: 6.75rem;
     height: 3.5rem;
     position: relative;
 }

@@ -1,4 +1,29 @@
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 800px) {
+
+    #general{
+        margin-top:75px;
+    }
+
+    #professor{
+        margin-top:75px;
+    }
+
+    #room{
+        margin-top:75px;
+    }
+
+    #course{
+        margin-top:75px;
+    }
+
+    #period{
+        margin-top:75px;
+    }
+
+    .register-btn{
+        position: absolute;
+    }
+
     .wrapper .menu-btn-container {
         display: none;
     }
@@ -12,5 +37,31 @@
     
     main{
         height: 100%;
+    }
+}
+
+@media only screen and (max-width: 956px) {
+    .btn{
+        margin: 0.5rem;
+    }
+
+    #general{
+        margin-top:75px;
+    }
+
+    #professor{
+        margin-top:75px;
+    }
+
+    #room{
+        margin-top:75px;
+    }
+
+    #course{
+        margin-top:75px;
+    }
+
+    #period{
+        margin-top:75px;
     }
 }

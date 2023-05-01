@@ -1,6 +1,7 @@
 import { fillSelectOptions } from './createNewEntity.js'
 import { selects } from './handleSubmitForm.js'
 
+
 export function createNewLineGeneralTable(tableID, obj) {
     const newLine = document.createElement('tr')
     newLine.setAttribute('data-id', obj.id)

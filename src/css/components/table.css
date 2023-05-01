@@ -37,7 +37,7 @@ td input:focus {
     box-shadow: inset 0 0 .1rem .1rem #8257e5;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
     background: var(--global-background);
 }
 

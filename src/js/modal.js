@@ -19,14 +19,14 @@ export function removeModal() {
 
 
 
-export function toggleInfoButton() {
-  const warningColor = "rgb(206, 74, 74)"
-  const okColor = "rgb(0, 179, 126)"
+  export function toggleInfoButton() {
+    const warningColor = "rgb(206, 74, 74)"
+    const okColor = "rgb(0, 179, 126)"
 
-  const colorButton = btnModal.style.backgroundColor == warningColor ? okColor : warningColor
+    const colorButton = btnModal.style.backgroundColor == warningColor ? okColor : warningColor
 
-  const textButton = btnModal.innerHTML == "Registrar" ? "Cancelar" : "Registrar"
+    const textButton = btnModal.innerHTML == "Registrar" ? "Cancelar" : "Registrar"
 
-  btnModal.style.backgroundColor = colorButton
-  btnModal.innerHTML = textButton
-}
+    btnModal.style.backgroundColor = colorButton
+    btnModal.innerHTML = textButton
+  }

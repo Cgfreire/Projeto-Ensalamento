@@ -4,7 +4,7 @@ import { fillGeneralTable, fillOthersTables } from './fillTables.js'
 import { createNewEntity } from "./createNewEntity.js"
 import { toggleTheme } from "./theme.js"
 import { handleSubmitForm } from "./handleSubmitForm.js"
-import { toggleModalCalendar } from './handleCalendar.js'
+import { fillCalendar } from './handleCalendar.js'
 
 window.addEventListener('load', () => {
     activeToggleMenu()
@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
     toggleModal()
     handleSubmitForm()
     toggleTheme()
-    toggleModalCalendar()
+    fillCalendar()
 })  
 
 
@@ -22,13 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentMonth = document.querySelector('#current-month')
     const currentYear = document.querySelector('#current-year')
     const calendar = document.querySelector('#calendario')
+    const nextButton = document.querySelector('.btn-ant')
+    const prevButton = document.querySelector('.btn-prox')
     const monthsBR = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-    const btnAnt = document.querySelector('.btn-ant')
-    const btnProx = document.querySelector('.btn-prox')
+    let currentDate = new Date()
 
+    function handleCalendar() {
+        let year = currentDate.getFullYear()
+        let month = currentDate.getMonth()
 
-
-    function handleCalendar(month, year) {
         currentMonth.innerHTML = monthsBR[month]
         currentYear.innerHTML = year
 
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = firstDayOfWeek, index = 0; i < (42 - firstDayOfWeek); i++, index++) {
             let data = new Date(year, month, i)
             let currentDate = new Date()
-            let dayTable = calendar.getElementsByTagName('td')[index]
+            let tdDay = calendar.getElementsByTagName('td')[index]
 
             const dayOfMonth = data.getDate()
             const dataMonth = data.getMonth() + 1
@@ -46,46 +48,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formatedDate = `${dataYear}-${dataMonth < 10 ? '0' : ''}${dataMonth}-${dayOfMonth < 10 ? '0' : ''}${dayOfMonth}`;
 
-            dayTable.setAttribute("data-date", formatedDate);
-            dayTable.classList.remove('mes-anterior')
-            dayTable.classList.remove('proximo-mes')
-            dayTable.innerHTML = data.getDate()
+            tdDay.setAttribute("data-date", formatedDate);
+            tdDay.classList.remove('mes-anterior')
+            tdDay.classList.remove('proximo-mes')
+            tdDay.innerHTML = data.getDate()
 
             if (data.getFullYear() == currentDate.getFullYear() && data.getMonth() == currentDate.getMonth() && data.getDate() == currentDate.getDate()) {
-                dayTable.classList.add('dia-atual')
+                tdDay.classList.add('dia-atual')
             }
 
             if (i < 1) {
-                dayTable.classList.add('mes-anterior')
+                tdDay.classList.add('mes-anterior')
             }
             if (i > getLastDayThisMouth) {
-                dayTable.classList.add('proximo-mes')
+                tdDay.classList.add('proximo-mes')
             }
         }
     }
 
-    let currentDate = new Date()
-    let mes = currentDate.getMonth()
-    let ano = currentDate.getFullYear()
-    handleCalendar(mes, ano)
+    handleCalendar()
 
-
-    btnProx.addEventListener('click', () => {
-        mes++
-        if (mes > 11) {
-            mes = 0
-            ano++
-        }
-        handleCalendar(mes, ano)
+    prevButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1)
+        handleCalendar()
     })
 
-
-    btnAnt.addEventListener('click', () => {
-        mes--
-        if (mes < 0) {
-            mes = 11
-            ano--
-        }
-        handleCalendar(mes, ano)
+    nextButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1)
+        handleCalendar()
     })
 })

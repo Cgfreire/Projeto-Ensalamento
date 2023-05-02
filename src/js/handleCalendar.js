@@ -17,7 +17,7 @@ export function handleCalendar(date, obj) {
             const modal = document.createElement('div')
             modal.setAttribute("data-date", formatedDate)
             modal.className = 'modal-events'
-            modal.innerHTML = `
+            modal.innerHTML += `
                     <i class="fa-solid fa-rectangle-xmark"></i>
                         <h1>Data: ${inverseFormatedDate}</h1>
                         <div class="event">

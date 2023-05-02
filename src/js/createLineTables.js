@@ -15,14 +15,8 @@ export function createNewLineGeneralTable(tableID, obj) {
         <td>${obj.date}</td>
         <td>${obj.initHour}</td>
         <td>>${obj.finishHour}</td>
-        <td><i class="fa-solid fa-pen"></i></td>
         <td><i class="fa-solid fa-trash"></i></td>
     `
-
-    const editIcon = newLine.querySelector('.fa-pen')
-    editIcon.addEventListener('click', () => {
-        
-    })
 
     const trashIcon = newLine.querySelector('.fa-trash')
     trashIcon.addEventListener('click', () => {

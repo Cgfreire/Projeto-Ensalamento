@@ -35,6 +35,7 @@ export function handleSubmitForm() {
 
         if (!verifyInputs()) return
 
+
         let objGeneral = {
             id: Date.now(),
             professor,
@@ -46,6 +47,7 @@ export function handleSubmitForm() {
             initHour,
             finishHour
         }
+
         createNewLineGeneralTable(generalTable, objGeneral)
         saveOnLocalStorage('general', objGeneral)
         clearInputs()

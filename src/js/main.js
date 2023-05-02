@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentMonth = document.querySelector('#current-month')
     const currentYear = document.querySelector('#current-year')
     const calendar = document.querySelector('#calendario')
-    const monthsBR = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
     const nextButton = document.querySelector('.btn-ant')
     const prevButton = document.querySelector('.btn-prox')
+    const monthsBR = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
     let currentDate = new Date()
 
     function handleCalendar() {

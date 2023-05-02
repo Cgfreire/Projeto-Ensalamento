@@ -11,13 +11,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 3rem;
-    background-color: var(--add-color);
     font-size: 1.6rem;
 }
 
 .calendario h3,
 .calendario a i {
-    color: var(--global-background);
+    color: var(--light-txt);
     font-size: 2.5rem;
 }
 
@@ -37,17 +36,6 @@
     padding: 1rem;
 }
 
-.notification-bubble {
-    width: 5rem;
-    height: 5rem;
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    background: #19b6ff;
-    border-radius: 50%;
-    z-index: 100;
-}
-
 .modal-events {
     width: 40rem;
     height: 40rem;
@@ -56,7 +44,7 @@
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 1100;
     border-radius: .5rem;
     display: none;
     overflow-y: auto;
@@ -75,7 +63,7 @@
     right: 0;
     font-size: 3rem;
     color: var(--warning-color);
-    z-index: 1001;
+    z-index: 1130;
 }
 
 h1 {

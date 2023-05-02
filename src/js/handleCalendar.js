@@ -1,5 +1,5 @@
-import { tds } from "./handleSubmitForm.js";
-import { overlap } from "./modal.js";
+import { tds } from "./handleSubmitForm.js"
+import { overlap } from "./modal.js"
 
 export function handleCalendar(date, obj) {
     const eventDate = new Date(date)
@@ -13,7 +13,9 @@ export function handleCalendar(date, obj) {
     Array.from(tds).forEach(td => {
         if (td.dataset.date == formatedDate) {
             td.style.backgroundColor = '#00b37e'
+            td.style.color = 'var(--global-background)'
             const modal = document.createElement('div')
+            modal.setAttribute("data-date", formatedDate)
             modal.className = 'modal-events'
             modal.innerHTML = `
                     <i class="fa-solid fa-rectangle-xmark"></i>
@@ -31,15 +33,16 @@ export function handleCalendar(date, obj) {
 
             document.body.appendChild(modal)
 
+            const modalEvent = document.body.querySelector(`.modal-events[data-date="${formatedDate}"]`)
             td.addEventListener('click', () => {
-                modal.classList.add('open')
+                modalEvent.classList.add('open')
                 overlap.classList.add('active')
             })
 
-
-            const buttonClose = modal.querySelector('.fa-rectangle-xmark')
+            
+            const buttonClose = modalEvent.querySelector('.fa-rectangle-xmark')
             buttonClose.addEventListener('click', () => {
-                modal.classList.remove('open')
+                modalEvent.classList.remove('open')
                 overlap.classList.remove('active')
             })
         }
@@ -48,5 +51,11 @@ export function handleCalendar(date, obj) {
 
 
 export function fillCalendar(){
-  
+    Array.from(tds).forEach(td => {
+        const list = JSON.parse(localStorage.getItem('general')) || []
+        list.forEach(obj => {
+            let { date } = obj
+            handleCalendar(date, obj)
+        })
+    })
 }
